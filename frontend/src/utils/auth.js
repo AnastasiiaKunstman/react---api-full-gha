@@ -49,7 +49,7 @@ class Auth {
 
 const auth = new Auth({
     //baseUrl: "https://auth.nomoreparties.co",
-    baseUrl: 'http://localhost:3000',
+    baseUrl: 'https://localhost:3000',
     //baseUrl: 'https://api.akunstman.nomoreparties.sbs',
     headers: {
         'content-type': 'application/json',
