@@ -67,17 +67,17 @@ function App() {
       api.setToken(token);
       auth.checkToken(token)
         .then((user) => {
-            setLoggedIn(true);
-            setEmail(user.email);
-            navigate('/', { replace: true });
+          setLoggedIn(true);
+          setEmail(user.email);
+          navigate('/', { replace: true });
         })
         .catch(console.error);
-      }
+    }
   };
 
   useEffect(() => {
     tokenCheck();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   //Регистрация пользователя
@@ -104,12 +104,13 @@ function App() {
     auth.login(email, password)
       .then((res) => {
         if (res.token) {
-        localStorage.setItem('token', res.token);
-        setLoggedIn(true);
-        setEmail(email);
-        api.setToken(res.token);
-        navigate('/', { replace: true });
-      }})
+          localStorage.setItem('token', res.token);
+          setLoggedIn(true);
+          setEmail(email);
+          api.setToken(res.token);
+          navigate('/', { replace: true });
+        }
+      })
       .catch((err) => {
         setIsInfoTooltipPopupOpen(true);
         setIsSuccess(false);
