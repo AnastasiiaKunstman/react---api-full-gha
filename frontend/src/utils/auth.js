@@ -1,7 +1,7 @@
 export const BASE_URL = 'https://api.akunstman.nomoreparties.sbs';
 
 class Auth {
-    constructor({ headers }) {
+    constructor(headers) {
         this._headers = headers;
     };
 
@@ -42,7 +42,6 @@ class Auth {
             method: 'GET',
             headers: {
                 'content-Type': 'application/json',
-                'Accept': 'application/json',
                 authorization: `Bearer ${token}`,
             },
         })
@@ -55,7 +54,6 @@ const auth = new Auth({
     //baseUrl: 'https://localhost:3000',
     headers: {
         'content-type': 'application/json',
-        'Accept': 'application/json',
     },
 });
 
