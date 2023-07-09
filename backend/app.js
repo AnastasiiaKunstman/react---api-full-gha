@@ -14,8 +14,11 @@ const { PORT = 3000 } = process.env;
 
 const app = express();
 app.use(cors({
+  methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
-  origin: 'https://akunstman.nomoreparties.sbs',
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
 }));
 
 const limiter = rateLimit({
