@@ -40,6 +40,7 @@ class Auth {
             method: 'GET',
             headers: {
                 'content-Type': 'application/json',
+                'Accept': 'application/json',
                 authorization: `Bearer ${token}`,
             },
         })
@@ -53,6 +54,7 @@ const auth = new Auth({
     baseUrl: 'https://api.akunstman.nomoreparties.sbs',
     headers: {
         'content-type': 'application/json',
+        'Accept': 'application/json',
     },
 });
 
