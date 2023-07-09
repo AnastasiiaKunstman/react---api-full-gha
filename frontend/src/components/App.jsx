@@ -85,7 +85,7 @@ function App() {
     setIsLoading(true);
     auth.register(email, password)
       .then(() => {
-        //setIsSuccess(true);
+        setIsSuccess(true);
         navigate('/sign-in', { replace: true });
       })
       .catch((err) => {
