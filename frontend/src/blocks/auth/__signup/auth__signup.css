@@ -1,0 +1,13 @@
+.auth__signup {
+    max-width: 358px;
+    margin: 15px auto auto;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    font-style: normal;
+    text-align: center;
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}

@@ -5,12 +5,12 @@
   
 Пожалуйста, прикрепите в это описание ссылку на сайт, размещенный на Яндекс.Облаке.
 
-Адрес репозитория: https://github.com/...
+Адрес репозитория: https://github.com/AnastasiiaKunstman/react-mesto-api-full-gha
 
 ## Ссылки на проект
 
-IP-адрес x.x.x.x
+IP 158.160.50.130
 
-Frontend https://...
+Frontend https://akunstman.nomoreparties.sbs
 
-Backend https://...
+Backend https://api.akunstman.nomoreparties.sbs

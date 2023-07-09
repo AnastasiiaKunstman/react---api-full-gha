@@ -1,0 +1,9 @@
+.popup__button-save-delete {
+    margin-top: 28px;
+}
+
+@media screen and (max-width: 569px) and (min-width: 320px) {
+    .popup__button-save-delete {
+        margin-top: 0;
+    }
+}
