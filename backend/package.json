@@ -4,14 +4,15 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "lint": "npx eslint .",
     "start": "node app.js",
-    "dev": "nodemon app.js",
-    "lint": "npx eslint ."
+    "dev": "nodemon app.js"
   },
   "keywords": [],
   "author": "Anastasiia Kunstman",
   "license": "ISC",
   "devDependencies": {
+    "eslint": "^8.44.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.27.5",
     "nodemon": "^2.0.22"
@@ -22,9 +23,9 @@
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
-    "eslint": "^8.44.0",
     "express": "^4.18.2",
     "express-rate-limit": "^6.7.0",
+    "express-winston": "^4.2.0",
     "helmet": "^7.0.0",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.2.2",
