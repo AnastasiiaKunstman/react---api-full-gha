@@ -2,6 +2,7 @@ class Api {
     constructor(options) {
         this._baseUrl = options.baseUrl;
         this._headers = options.headers;
+        this._credentials = options.credentials
     };
 
 
@@ -22,6 +23,7 @@ class Api {
     getUserInfo() {
         return this._request(`${this._baseUrl}/users/me`, {
             headers: this._headers,
+            credentials: this._credentials,
         })
     };
 
@@ -29,6 +31,7 @@ class Api {
     getInitialCards() {
         return this._request(`${this._baseUrl}/cards`, {
             headers: this._headers,
+            credentials: this._credentials,
         })
     };
 
@@ -38,6 +41,7 @@ class Api {
         return this._request(`${this._baseUrl}/users/me`, {
             method: 'PATCH',
             headers: this._headers,
+            credentials: this._credentials,
             body: JSON.stringify({
                 name: name,
                 about: about,
@@ -51,6 +55,7 @@ class Api {
         return this._request(`${this._baseUrl}/cards`, {
             method: 'POST',
             headers: this._headers,
+            credentials: this._credentials,
             body: JSON.stringify(data)
         })
     };
@@ -60,6 +65,7 @@ class Api {
         return this._request(`${this._baseUrl}/users/me/avatar`, {
             method: 'PATCH',
             headers: this._headers,
+            credentials: this._credentials,
             body: JSON.stringify({
                 avatar: avatar
             }),
@@ -71,6 +77,7 @@ class Api {
         return this._request(`${this._baseUrl}/cards/${cardId}`, {
             method: 'DELETE',
             headers: this._headers,
+            credentials: this._credentials,
         })
     };
 
@@ -79,6 +86,7 @@ class Api {
         return this._request(`${this._baseUrl}/cards/${cardId}/likes`, {
             method: isLiked ? 'PUT' : 'DELETE',
             headers: this._headers,
+            credentials: this._credentials,
         })
     };
 
@@ -96,6 +104,7 @@ const api = new Api({
         authorization: `Bearer ${localStorage.getItem('token')}`,
         'content-type': 'application/json'
     },
+    credentials: 'include',
 });
 
 export default api;
