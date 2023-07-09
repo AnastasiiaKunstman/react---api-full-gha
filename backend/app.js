@@ -13,13 +13,13 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 const { PORT = 3000 } = process.env;
 
 const app = express();
-app.use(cors({
-  methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true,
-  preflightContinue: false,
-  optionsSuccessStatus: 204,
-}));
+app.use(cors());
+
+//   methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
+//   allowedHeaders: ['Content-Type', 'Authorization'],
+//   credentials: true,
+//   preflightContinue: false,
+//   optionsSuccessStatus: 204,
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes

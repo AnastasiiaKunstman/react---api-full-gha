@@ -1,7 +1,6 @@
 class Auth {
-    constructor(baseUrl, headers) {
+    constructor(baseUrl) {
         this._baseUrl = baseUrl;
-        this._headers = headers
     };
 
     _checkResponse(res) {
@@ -16,7 +15,9 @@ class Auth {
     register(email, password) {
         return fetch(`${this._baseUrl}/signup`, {
             method: 'POST',
-            headers: this._headers,
+            headers: {
+                'content-type': 'application/json',
+            },
             body: JSON.stringify({ email, password }),
         })
             .then(this._checkResponse)
@@ -27,7 +28,9 @@ class Auth {
     login(email, password) {
         return fetch(`${this._baseUrl}/signin`, {
             method: 'POST',
-            headers: this._headers,
+            headers: {
+                'content-type': 'application/json',
+            },
             body: JSON.stringify({ email, password }),
         })
             .then(this._checkResponse)
@@ -47,13 +50,6 @@ class Auth {
     };
 };
 
-const auth = new Auth({
-    //baseUrl: "https://auth.nomoreparties.co",
-    //baseUrl: 'https://localhost:3000',
-    baseUrl: 'https://api.akunstman.nomoreparties.sbs',
-    headers: {
-        'content-type': 'application/json',
-    },
-});
+const auth = new Auth('https://api.akunstman.nomoreparties.sbs');
 
 export default auth;
