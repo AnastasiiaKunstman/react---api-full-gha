@@ -169,7 +169,7 @@ function App() {
     auth.register(email, password)
       .then(() => {
         setIsSuccess(true);
-        navigate('/signin', { replace: true });
+        navigate('/sign-in', { replace: true });
       })
       .catch((err) => {
         //setIsSuccess(false);
@@ -190,7 +190,7 @@ function App() {
         localStorage.setItem('token', res.token);
         setLoggedIn(true);
         setEmail(email);
-        api.setToken(res.token)
+        //api.setToken(res.token)
         navigate('/', { replace: true });
       }})
       .catch((err) => {
