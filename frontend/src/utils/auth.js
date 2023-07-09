@@ -1,6 +1,7 @@
+export const BASE_URL = 'https://api.akunstman.nomoreparties.sbs';
+
 class Auth {
-    constructor({ baseUrl, headers }) {
-        this._baseUrl = baseUrl;
+    constructor({ headers }) {
         this._headers = headers;
     };
 
@@ -14,7 +15,7 @@ class Auth {
 
     //регистрация
     register(email, password) {
-        return fetch(`${this._baseUrl}/signup`, {
+        return fetch(`${BASE_URL}/signup`, {
             method: 'POST',
             headers: this._headers,
             body: JSON.stringify({ email, password }),
@@ -25,7 +26,7 @@ class Auth {
 
     //вход
     login(email, password) {
-        return fetch(`${this._baseUrl}/signin`, {
+        return fetch(`${BASE_URL}/signin`, {
             method: 'POST',
             headers: this._headers,
             body: JSON.stringify({ email, password }),
@@ -36,7 +37,7 @@ class Auth {
 
     //проверка токена
     checkToken(token) {
-        return fetch(`${this._baseUrl}/users/me`, {
+        return fetch(`${BASE_URL}/users/me`, {
             method: 'GET',
             headers: {
                 'content-Type': 'application/json',
@@ -51,7 +52,6 @@ class Auth {
 const auth = new Auth({
     //baseUrl: "https://auth.nomoreparties.co",
     //baseUrl: 'https://localhost:3000',
-    baseUrl: 'https://api.akunstman.nomoreparties.sbs',
     headers: {
         'content-type': 'application/json',
         'Accept': 'application/json',
