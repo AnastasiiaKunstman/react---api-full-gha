@@ -80,6 +80,52 @@ function App() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  //Регистрация пользователя
+  function onRegister(email, password) {
+    setIsLoading(true);
+    auth.register(email, password)
+      .then(() => {
+        setIsSuccess(true);
+        navigate('/sign-in', { replace: true });
+      })
+      .catch((err) => {
+        //setIsSuccess(false);
+        console.log(err);
+      })
+      .finally(() => {
+        setIsLoading(false);
+        setIsInfoTooltipPopupOpen(true);
+      })
+  };
+
+  //Вход
+  function onLogin(email, password) {
+    setIsLoading(true);
+    auth.login(email, password)
+      .then((res) => {
+        if (res.token) {
+        localStorage.setItem('token', res.token);
+        setLoggedIn(true);
+        setEmail(email);
+        api.setToken(res.token);
+        navigate('/', { replace: true });
+      }})
+      .catch((err) => {
+        setIsInfoTooltipPopupOpen(true);
+        setIsSuccess(false);
+        console.log(err);
+      })
+      .finally(() => setIsLoading(false))
+  };
+
+
+  // Выход
+  const onSignOut = () => {
+    localStorage.removeItem('token');
+    setLoggedIn(false);
+    navigate('/sign-in', { replace: true });
+  };
+
   //обработчики событий
   const handleEditProfileClick = () => setIsEditProfilePopupOpen(true);
   const handleAddPlaceClick = () => setIsAddPlacePopupOpen(true);
@@ -161,52 +207,6 @@ function App() {
       })
       .catch(console.error)
       .finally(() => setIsLoading(false));
-  };
-
-  //Регистрация пользователя
-  function onRegister(email, password) {
-    setIsLoading(true);
-    auth.register(email, password)
-      .then(() => {
-        setIsSuccess(true);
-        navigate('/sign-in', { replace: true });
-      })
-      .catch((err) => {
-        //setIsSuccess(false);
-        console.log(err);
-      })
-      .finally(() => {
-        setIsLoading(false);
-        setIsInfoTooltipPopupOpen(true);
-      })
-  };
-
-  //Вход
-  function onLogin(email, password) {
-    setIsLoading(true);
-    auth.login(email, password)
-      .then((res) => {
-        if (res.token) {
-        localStorage.setItem('token', res.token);
-        setLoggedIn(true);
-        setEmail(email);
-        //api.setToken(res.token)
-        navigate('/', { replace: true });
-      }})
-      .catch((err) => {
-        setIsInfoTooltipPopupOpen(true);
-        setIsSuccess(false);
-        console.log(err);
-      })
-      .finally(() => setIsLoading(false))
-  };
-
-
-  // Выход
-  const onSignOut = () => {
-    localStorage.removeItem('token');
-    setLoggedIn(false);
-    navigate('/signin', { replace: true });
   };
 
   return (

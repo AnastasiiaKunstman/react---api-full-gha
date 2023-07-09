@@ -26,7 +26,6 @@ class Auth {
     //вход
     login(email, password) {
         return fetch(`${this._baseUrl}/signin`, {
-            mode: 'no-cors',
             method: 'POST',
             headers: this._headers,
             body: JSON.stringify({ email, password }),
