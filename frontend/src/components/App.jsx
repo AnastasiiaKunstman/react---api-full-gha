@@ -86,7 +86,7 @@ function App() {
     auth.register(email, password)
       .then(() => {
         setIsSuccess(true);
-        navigate('/sign-in', { replace: true });
+        navigate('/sign-up', { replace: true });
       })
       .catch((err) => {
         //setIsSuccess(false);
