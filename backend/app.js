@@ -9,7 +9,7 @@ const { errors } = require('celebrate');
 const routes = require('./routes/index');
 const errorHandler = require('./middlewares/errorHandler');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
-const config = require('./config');
+const { PORT, MONGO_URL } = require('./config');
 
 const app = express();
 app.use(cors());
@@ -28,7 +28,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 
-mongoose.connect(config.MONGO_URL);
+mongoose.connect(MONGO_URL);
 
 app.use(requestLogger);
 
@@ -44,7 +44,7 @@ app.use(errorLogger);
 app.use(errors());
 app.use(errorHandler);
 
-app.listen(config.PORT, () => {
+app.listen(PORT, () => {
   // eslint-disable-next-line no-console
-  console.log(`App listening on port ${config.PORT}`);
+  console.log(`App listening on port ${PORT}`);
 });

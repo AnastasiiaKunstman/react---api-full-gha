@@ -1,14 +1,8 @@
-const {
-  NODE_ENV,
-  JWT_SECRET,
-  MONGO_URL,
-  PORT,
-} = process.env;
+const { JWT_SECRET = 'some-secret-key' } = process.env;
+const { NODE_ENV = 'production' } = process.env;
+const { MONGO_URL = 'mongodb://localhost:27017/mestodb' } = process.env;
+const { PORT = 3000 } = process.env;
 
-const config = {
-  MONGO_URL: NODE_ENV === 'production' ? MONGO_URL : 'mongodb://localhost:27017/mestodb',
-  PORT: NODE_ENV === 'production' ? PORT : 3000,
-  JWT_SECRET: NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret',
+export {
+  PORT, MONGO_URL, NODE_ENV, JWT_SECRET,
 };
-
-module.exports = config;
