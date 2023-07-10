@@ -1,10 +1,10 @@
+const { NODE_ENV, JWT_SECRET = 'JWT_SECRET' } = process.env;
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 const ValidationError = require('../errors/BadRequest');
 const NotFoundError = require('../errors/NotFound');
 const ConflictError = require('../errors/Conflict');
-const { NODE_ENV, JWT_SECRET } = require('../config');
 
 const createUser = (req, res, next) => {
   const {
