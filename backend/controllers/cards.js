@@ -1,6 +1,6 @@
 const Card = require('../models/card');
 const ForbiddenError = require('../errors/Forbidden');
-const ValidationError = require('../errors/BadRequest');
+const BadRequest = require('../errors/BadRequest');
 const NotFoundError = require('../errors/NotFound');
 
 const createCard = (req, res, next) => {
@@ -10,7 +10,7 @@ const createCard = (req, res, next) => {
     .then((card) => res.status(201).send(card))
     .catch((err) => {
       if (err.name === 'ValidationError') {
-        next(new ValidationError('Переданы некорректные данные.'));
+        next(new BadRequest('Переданы некорректные данные.'));
       } else {
         next(err);
       }
@@ -36,7 +36,7 @@ const deleteCardById = (req, res, next) => {
     })
     .catch((err) => {
       if (err.name === 'CastError') {
-        next(new ValidationError('Переданы некорректные данные.'));
+        next(new BadRequest('Переданы некорректные данные.'));
       } else {
         next(err);
       }
@@ -49,7 +49,7 @@ const likeCard = (req, res, next) => {
     .then((card) => res.send({ data: card }))
     .catch((err) => {
       if (err.name === 'CastError') {
-        next(new ValidationError('Переданы некорректные данные.'));
+        next(new BadRequest('Переданы некорректные данные.'));
       } else {
         next(err);
       }
@@ -62,7 +62,7 @@ const dislikeCard = (req, res, next) => {
     .then((card) => res.send({ data: card }))
     .catch((err) => {
       if (err.name === 'CastError') {
-        next(new ValidationError('Переданы некорректные данные.'));
+        next(new BadRequest('Переданы некорректные данные.'));
       } else {
         next(err);
       }
