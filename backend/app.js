@@ -10,16 +10,10 @@ const routes = require('./routes/index');
 const errorHandler = require('./middlewares/errorHandler');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
-const { PORT = 3000 } = process.env;
+const { PORT, MONGO_URL } = process.env;
 
 const app = express();
 app.use(cors());
-
-//   methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
-//   allowedHeaders: ['Content-Type', 'Authorization'],
-//   credentials: true,
-//   preflightContinue: false,
-//   optionsSuccessStatus: 204,
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
@@ -35,7 +29,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 
-mongoose.connect('mongodb://127.0.0.1:27017/mestodb');
+mongoose.connect(MONGO_URL);
 
 app.use(requestLogger);
 
