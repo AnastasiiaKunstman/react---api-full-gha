@@ -1,9 +1,9 @@
-[![Статус тестов](../../actions/workflows/tests.yml/badge.svg)](../../actions/workflows/tests.yml)
-
 # Mesto
 *react-mesto-api-full-gha*
 
 Репозиторий для приложения проекта `Mesto`, включающий фронтенд и бэкенд части приложения. 
+
+![Mesto](./frontend/src/images/scrin.JPG)
 
 ## На этом сайте пользватель может:
 
@@ -36,6 +36,6 @@
 
 ## Ссылки на проект
 
-IP 158.160.50.130
-Frontend https://akunstman.nomoreparties.sbs
-Backend https://api.akunstman.nomoreparties.sbs
+IP 158.160.50.130  
+Frontend https://akunstman.nomoreparties.sbs  
+Backend https://api.akunstman.nomoreparties.sbs  
