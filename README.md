@@ -34,6 +34,6 @@
 
 ## Ссылки на проект
 
-IP 158.160.50.130
-Frontend https://akunstman.nomoreparties.sbs
-Backend https://api.akunstman.nomoreparties.sbs
+IP 158.160.50.130  
+Frontend https://akunstman.nomoreparties.sbs  
+Backend https://api.akunstman.nomoreparties.sbs  
